@@ -5,6 +5,7 @@ void utils::printRobotBatteries(std::vector<utils::Robot> &robots) {
   sort(robots.begin(), robots.end(),
        [](Robot &robot1, Robot &robot2) { return robot1.id < robot2.id; });
 
+  std::cout << "[printRobotBatteries] ";
   for (std::size_t i = 0; i < robots.size(); i++) {
     std::cout << "Robot " << std::setw(2) << robots[i].id << ": ("
               << std::setw(6) << robots[i].battery << ", " << std::setw(1)
