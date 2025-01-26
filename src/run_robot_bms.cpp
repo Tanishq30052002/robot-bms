@@ -25,9 +25,9 @@ int main() {
 
   float chargingPercentage = 1.5;   // %/sec
   float dischargingPercentage = 1;  // %/sec
-  int SlotsCharging = 2;
+  int chargingSlots = 2;            // num of slots for charging
 
-  bms::BMS robotBMS(chargingPercentage, dischargingPercentage, SlotsCharging);
+  bms::BMS robotBMS(chargingPercentage, dischargingPercentage, chargingSlots);
 
   while (flg_run) {
     utils::printRobotBatteries(robots);
