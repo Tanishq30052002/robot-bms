@@ -17,6 +17,11 @@ class Robot {
   inline float getRobotBattery() const { return battery; }
   inline float getChargingStatus() const { return charging_status; }
 
+  inline void setRobotBattery(float robot_battery) { battery = robot_battery; }
+  inline void setChargingStatus(bool robot_charging_status) {
+    charging_status = robot_charging_status;
+  }
+
  private:
   int id = 0;
   float battery = 0;

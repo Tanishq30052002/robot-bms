@@ -1,31 +1,31 @@
 #include <bms.h>
 
 void bms::BMS::chargingRobot(utils::Robot &robot) {
-  robot.battery = robot.battery + chargingPercentage;
+  robot.setRobotBattery(robot.getRobotBattery() + chargingPercentage);
 }
 
 void bms::BMS::dischargingRobot(utils::Robot &robot) {
-  robot.battery = robot.battery - dischargingPercentage;
+  robot.setRobotBattery(robot.getRobotBattery() - dischargingPercentage);
 }
 
 void bms::BMS::run(std::vector<utils::Robot> &robots) {
   sort(robots.begin(), robots.end(),
        [](utils::Robot &robot1, utils::Robot &robot2) {
-         return robot1.battery < robot2.battery;
+         return robot1.getRobotBattery() < robot2.getRobotBattery();
        });
 
   if (currBotsCharging < numSlotsCharging) {
     for (int i = 0; i < numSlotsCharging; i++) {
-      robots[i].charging_status = true;
+      robots[i].setChargingStatus(true);
       currBotsCharging++;
     }
   } else {
     for (int i = robots.size() - 1; i >= 0; i--) {
-      if (robots[i].charging_status && robots[i].battery > 20) {
+      if (robots[i].getChargingStatus() && robots[i].getRobotBattery() > 20) {
         for (std::size_t j = 0; j < robots.size(); j++) {
-          if (!robots[j].charging_status && robots[j].battery < 20) {
-            robots[j].charging_status = true;
-            robots[i].charging_status = false;
+          if (!robots[j].getChargingStatus() && robots[j].getRobotBattery() < 20) {
+            robots[j].setChargingStatus(true);
+            robots[i].setChargingStatus(false);
             std::swap(robots[i], robots[j]);
           }
         }
@@ -34,7 +34,7 @@ void bms::BMS::run(std::vector<utils::Robot> &robots) {
   }
 
   for (auto &robot : robots) {
-    if (robot.charging_status)
+    if (robot.getChargingStatus())
       chargingRobot(robot);
     else
       dischargingRobot(robot);
