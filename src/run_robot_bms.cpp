@@ -23,7 +23,11 @@ int main() {
   robots.emplace_back(utils::Robot(4, 40, false));
   robots.emplace_back(utils::Robot(5, 40, false));
 
-  bms::BMS robotBMS(1.5, 1, 2);
+  float chargingPercentage = 1.5;   // %/sec
+  float dischargingPercentage = 1;  // %/sec
+  int SlotsCharging = 2;
+
+  bms::BMS robotBMS(chargingPercentage, dischargingPercentage, SlotsCharging);
 
   while (flg_run) {
     utils::printRobotBatteries(robots);
