@@ -9,7 +9,7 @@ void utils::printRobotBatteries(std::vector<utils::Robot> &robots) {
   std::cout << "[printRobotBatteries] ";
   for (std::size_t i = 0; i < robots.size(); i++) {
     std::cout << "Robot " << std::setw(2) << robots[i].getRobotId() << ": ("
-              << std::setw(6) << robots[i].getRobotBattery() << ", "
+              << std::setw(4) << robots[i].getRobotBattery() << ", "
               << std::setw(1) << robots[i].getChargingStatus() << ")";
 
     if (i != robots.size() - 1) {
