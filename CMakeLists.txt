@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.11)
+project(robot_bms)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -fPIC -Wp,-D_GLIBCXX_ASSERTIONS")
+
+set(BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR})
+
+add_subdirectory(utils)
