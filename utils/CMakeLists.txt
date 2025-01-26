@@ -7,5 +7,5 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -fPIC -Wp,-D_GLIBCXX_ASSERTIONS")
 
-add_library(${PROJECT_NAME} STATIC utils.cpp)
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR})
+add_library(${PROJECT_NAME} STATIC src/utils.cpp)
+target_include_directories(${PROJECT_NAME} PUBLIC include)
