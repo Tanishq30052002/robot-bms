@@ -13,6 +13,6 @@ add_subdirectory(utils)
 add_subdirectory(bms)
 
 add_executable(${PROJECT_NAME} src/run_robot_bms.cpp)
-target_link_libraries(${PROJECT_NAME} PRIVATE utils bms pthread rt)
+target_link_libraries(${PROJECT_NAME} PRIVATE bms)
 target_include_directories(${PROJECT_NAME} PUBLIC bms/src)
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_STRIP} $<TARGET_FILE:${PROJECT_NAME}> )
