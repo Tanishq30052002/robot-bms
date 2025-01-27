@@ -16,12 +16,14 @@ void BMS::run(std::vector<utils::Robot> &robots) {
        });
 
   int numRobots = robots.size();
-  if (currBotsCharging < numSlotsCharging) {
-    for (int i = 0; i < numSlotsCharging; i++) {
+  for (int i = 0; i < numRobots; i++) {
+    if (currBotsCharging < numSlotsCharging && !robots[i].getChargingStatus() &&
+        robots[i].getRobotBattery() < (100 - chargingPercentage)) {
       robots[i].setChargingStatus(true);
       currBotsCharging++;
     }
-  } else {
+  }
+  if (currBotsCharging == numSlotsCharging) {
     for (int i = numRobots - 1; i >= 0; i--) {
       if (robots[i].getChargingStatus() && robots[i].getRobotBattery() > 20) {
         for (int j = 0; j < numRobots; j++) {
@@ -30,6 +32,10 @@ void BMS::run(std::vector<utils::Robot> &robots) {
             robots[j].setChargingStatus(true);
             robots[i].setChargingStatus(false);
             std::swap(robots[i], robots[j]);
+          } else if (robots[i].getChargingStatus() &&
+                     robots[i].getRobotBattery() > 100 - chargingPercentage) {
+            currBotsCharging--;
+            robots[i].setChargingStatus(false);
           }
         }
       }
