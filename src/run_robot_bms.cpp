@@ -22,10 +22,10 @@ int main(int argc, char** argv) {
     return 1;
   }
 
-  params::Params params_obj(argv[1]);
-  bms::BMS robotBMS(params_obj.getChargingRate(),
-                    params_obj.getDischargingRate(),
-                    params_obj.getChargingSpots());
+  std::string loc_config_path = argv[1];
+
+  params::Params params_obj(loc_config_path);
+  bms::BMS robotBMS(loc_config_path);
 
   std::vector<utils::Robot> robots;
   params_obj.getRobots(robots);
