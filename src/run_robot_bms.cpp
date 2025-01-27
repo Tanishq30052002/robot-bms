@@ -13,21 +13,22 @@ void signal_callback_handler(int signal) {
   }
 }
 
-int main() {
+int main(int argc, char** argv) {
   signal(SIGINT, signal_callback_handler);
 
+  if (argc < 2) {
+    std::cout << "[run_robot_bms] Usage:\n"
+              << argv[0] << " <path to config file>";
+    return 1;
+  }
+
+  params::Params params_obj(argv[1]);
+  bms::BMS robotBMS(params_obj.getChargingRate(),
+                    params_obj.getDischargingRate(),
+                    params_obj.getChargingSpots());
+
   std::vector<utils::Robot> robots;
-  robots.emplace_back(utils::Robot(1, 10, false));
-  robots.emplace_back(utils::Robot(2, 20, false));
-  robots.emplace_back(utils::Robot(3, 20, false));
-  robots.emplace_back(utils::Robot(4, 40, false));
-  robots.emplace_back(utils::Robot(5, 40, false));
-
-  float chargingPercentage = 1.5;   // %/sec
-  float dischargingPercentage = 1;  // %/sec
-  int chargingSlots = 2;            // num of slots for charging
-
-  bms::BMS robotBMS(chargingPercentage, dischargingPercentage, chargingSlots);
+  params_obj.getRobots(robots);
 
   while (flg_run) {
     utils::printRobotBatteries(robots);
