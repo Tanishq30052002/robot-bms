@@ -1,6 +1,7 @@
 #include <utils.h>
+namespace utils {
 
-void utils::printRobotBatteries(std::vector<utils::Robot> &robots) {
+void printRobotBatteries(std::vector<Robot> &robots) {
   // Sort the bots in increasing order based on the id
   sort(robots.begin(), robots.end(), [](Robot &robot1, Robot &robot2) {
     return robot1.getRobotId() < robot2.getRobotId();
@@ -18,3 +19,4 @@ void utils::printRobotBatteries(std::vector<utils::Robot> &robots) {
   }
   std::cout << std::endl;
 }
+}  // namespace utils

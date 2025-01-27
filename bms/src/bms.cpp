@@ -1,14 +1,15 @@
 #include <bms.h>
+namespace bms {
 
-void bms::BMS::chargingRobot(utils::Robot &robot) {
+void BMS::chargingRobot(utils::Robot &robot) {
   robot.setRobotBattery(robot.getRobotBattery() + chargingPercentage);
 }
 
-void bms::BMS::dischargingRobot(utils::Robot &robot) {
+void BMS::dischargingRobot(utils::Robot &robot) {
   robot.setRobotBattery(robot.getRobotBattery() - dischargingPercentage);
 }
 
-void bms::BMS::run(std::vector<utils::Robot> &robots) {
+void BMS::run(std::vector<utils::Robot> &robots) {
   sort(robots.begin(), robots.end(),
        [](utils::Robot &robot1, utils::Robot &robot2) {
          return robot1.getRobotBattery() < robot2.getRobotBattery();
@@ -42,4 +43,5 @@ void bms::BMS::run(std::vector<utils::Robot> &robots) {
   }
 }
 
-void bms::BMS::stop() { std::cout << "[BMS::stop] Exiting the Robot BMS\n"; }
+void BMS::stop() { std::cout << "[BMS::stop] Exiting the Robot BMS\n"; }
+}  // namespace bms
