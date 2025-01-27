@@ -6,9 +6,9 @@ bool flg_run = true;
 void signal_callback_handler(int signal) {
   flg_run = false;
   if (signal == SIGINT)
-    std::cout << "[main] Exiting on SIGINT\n";
+    std::cout << "[run_robot_bms] Exiting on SIGINT\n";
   else {
-    std::cout << "[main] Exiting on Abort or Seg-Fault\n";
+    std::cout << "[run_robot_bms] Exiting on Abort or Seg-Fault\n";
     std::this_thread::sleep_for(std::chrono::seconds(1));
   }
 }

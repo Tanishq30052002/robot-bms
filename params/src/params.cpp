@@ -22,7 +22,8 @@ void params::Params::readConfigFile(std::string config_path) {
         config["constraints"]["min_operational_battery"].as<float>();
 
   } catch (const YAML::Exception& e) {
-    std::cerr << "Error reading config file: " << e.what() << std::endl;
+    std::cerr << "[Params::readConfigFile] Error reading config file: "
+              << e.what() << std::endl;
   }
 }
 }  // namespace params
