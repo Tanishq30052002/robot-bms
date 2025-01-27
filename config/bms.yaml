@@ -16,3 +16,4 @@ constraints:
   charging_rate: 1.5 # Percentage per second
   charging_spots: 2
   min_operational_battery: 20 # Minimum battery percentage required for operation
+  max_operational_battery: 100 # Maximum battery percentage

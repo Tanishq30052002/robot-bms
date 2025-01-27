@@ -16,6 +16,12 @@ class Params {
   }
   inline float getChargingRate() const { return chargingRate; }
   inline float getDischargingRate() const { return dischargingRate; }
+  inline float getMinOperationalBattery() const {
+    return minOperationalBattery;
+  }
+  inline float getMaxOperationalBattery() const {
+    return maxOperationalBattery;
+  }
   inline int getChargingSpots() const { return chargingSpots; }
 
  private:
@@ -25,6 +31,7 @@ class Params {
   float chargingRate = 1;
   float dischargingRate = 1.5;
   float minOperationalBattery = 20;
+  float maxOperationalBattery = 100;
   int chargingSpots = 2;
 };
 }  // namespace params
