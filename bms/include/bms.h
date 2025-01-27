@@ -1,4 +1,4 @@
-#include <utils.h>
+#include <params.h>
 
 #include <algorithm>
 #include <thread>
@@ -15,8 +15,6 @@ class BMS {
         numSlotsCharging(numSlotsCharging) {}
 
   void run(std::vector<utils::Robot> &robots);
-
-  bool isRunning();
 
   void stop();
 

@@ -8,5 +8,5 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -fPIC -Wp,-D_GLIBCXX_ASSERTIONS")
 
 add_library(${PROJECT_NAME} STATIC src/bms.cpp)
-target_link_libraries(${PROJECT_NAME} PUBLIC utils)
+target_link_libraries(${PROJECT_NAME} PUBLIC params)
 target_include_directories(${PROJECT_NAME} PUBLIC include)

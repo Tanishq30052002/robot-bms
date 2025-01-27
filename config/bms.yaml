@@ -1,0 +1,18 @@
+# Robot Battery Management System Parameters
+robots:
+  - id: 1
+    battery_level: 10
+  - id: 2
+    battery_level: 20
+  - id: 3
+    battery_level: 20
+  - id: 4
+    battery_level: 40
+  - id: 5
+    battery_level: 40
+
+constraints:
+  discharging_rate: 1 # Percentage per second
+  charging_rate: 1.5 # Percentage per second
+  charging_spots: 2
+  min_operational_battery: 20 # Minimum battery percentage required for operation

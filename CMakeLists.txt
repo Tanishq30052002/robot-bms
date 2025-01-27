@@ -11,6 +11,7 @@ set(BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(utils)
 add_subdirectory(bms)
+add_subdirectory(params)
 
 add_executable(${PROJECT_NAME} src/run_robot_bms.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE bms)
