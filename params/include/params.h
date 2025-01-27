@@ -14,24 +14,24 @@ class Params {
   inline void getRobots(std::vector<utils::Robot> &robots) {
     robots = this->robots;
   }
-  inline float getChargingRate() const { return chargingRate; }
-  inline float getDischargingRate() const { return dischargingRate; }
+  inline float getChargingRate() const { return chargingRate_; }
+  inline float getDischargingRate() const { return dischargingRate_; }
   inline float getMinOperationalBattery() const {
-    return minOperationalBattery;
+    return minOperationalBattery_;
   }
   inline float getMaxOperationalBattery() const {
-    return maxOperationalBattery;
+    return maxOperationalBattery_;
   }
-  inline int getChargingSpots() const { return chargingSpots; }
+  inline int getChargingSpots() const { return chargingSpots_; }
 
  private:
   std::string config_path;
   std::vector<utils::Robot> robots;
 
-  float chargingRate = 1;
-  float dischargingRate = 1.5;
-  float minOperationalBattery = 20;
-  float maxOperationalBattery = 100;
-  int chargingSpots = 2;
+  float chargingRate_ = 1;
+  float dischargingRate_ = 1.5;
+  float minOperationalBattery_ = 20;
+  float maxOperationalBattery_ = 100;
+  int chargingSpots_ = 2;
 };
 }  // namespace params

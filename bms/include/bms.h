@@ -10,11 +10,11 @@ class BMS {
  public:
   BMS(std::string config_path) {
     params::Params params_obj(config_path);
-    chargingPercentage = params_obj.getChargingRate();
-    dischargingPercentage = params_obj.getDischargingRate();
-    minOperationalBattery = params_obj.getMinOperationalBattery();
-    maxOperationalBattery = params_obj.getMaxOperationalBattery();
-    numSlotsCharging = params_obj.getChargingSpots();
+    chargingPercentage_ = params_obj.getChargingRate();
+    dischargingPercentage_ = params_obj.getDischargingRate();
+    minOperationalBattery_ = params_obj.getMinOperationalBattery();
+    maxOperationalBattery_ = params_obj.getMaxOperationalBattery();
+    numSlotsCharging_ = params_obj.getChargingSpots();
   }
 
   void run(std::vector<utils::Robot> &robots);
@@ -24,14 +24,13 @@ class BMS {
   ~BMS() { stop(); }
 
  private:
-  float chargingPercentage;     // per second
-  float dischargingPercentage;  // per second
-  int numSlotsCharging;         // charging slots
-  float minOperationalBattery;
-  float maxOperationalBattery;
+  float chargingPercentage_;     // per second
+  float dischargingPercentage_;  // per second
+  int numSlotsCharging_;         // charging slots
+  float minOperationalBattery_;
+  float maxOperationalBattery_;
 
-  int currBotsCharging = 0;
-  bool flg_run_ = true;
+  int currBotsCharging_ = 0;
 
   inline void chargingRobot(utils::Robot &robot);
 

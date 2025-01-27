@@ -15,12 +15,12 @@ void params::Params::readConfigFile(std::string config_path) {
     }
 
     // Read constraints
-    dischargingRate = config["constraints"]["discharging_rate"].as<float>();
-    chargingRate = config["constraints"]["charging_rate"].as<float>();
-    chargingSpots = config["constraints"]["charging_spots"].as<int>();
-    minOperationalBattery =
+    dischargingRate_ = config["constraints"]["discharging_rate"].as<float>();
+    chargingRate_ = config["constraints"]["charging_rate"].as<float>();
+    chargingSpots_ = config["constraints"]["charging_spots"].as<int>();
+    minOperationalBattery_ =
         config["constraints"]["min_operational_battery"].as<float>();
-    maxOperationalBattery =
+    maxOperationalBattery_ =
         config["constraints"]["max_operational_battery"].as<float>();
 
   } catch (const YAML::Exception& e) {
