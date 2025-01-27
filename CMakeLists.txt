@@ -13,6 +13,9 @@ add_subdirectory(utils)
 add_subdirectory(bms)
 add_subdirectory(params)
 
+set(LOC_PARAMS "config")
+file(COPY ${PROJECT_SOURCE_DIR}/${LOC_PARAMS} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
 add_executable(${PROJECT_NAME} src/run_robot_bms.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE bms)
 target_include_directories(${PROJECT_NAME} PUBLIC bms/src)
