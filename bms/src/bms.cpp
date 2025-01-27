@@ -23,7 +23,8 @@ void bms::BMS::run(std::vector<utils::Robot> &robots) {
     for (int i = robots.size() - 1; i >= 0; i--) {
       if (robots[i].getChargingStatus() && robots[i].getRobotBattery() > 20) {
         for (std::size_t j = 0; j < robots.size(); j++) {
-          if (!robots[j].getChargingStatus() && robots[j].getRobotBattery() < 20) {
+          if (!robots[j].getChargingStatus() &&
+              robots[j].getRobotBattery() < 20) {
             robots[j].setChargingStatus(true);
             robots[i].setChargingStatus(false);
             std::swap(robots[i], robots[j]);
