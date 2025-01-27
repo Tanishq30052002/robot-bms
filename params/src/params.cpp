@@ -20,6 +20,8 @@ void params::Params::readConfigFile(std::string config_path) {
     chargingSpots = config["constraints"]["charging_spots"].as<int>();
     minOperationalBattery =
         config["constraints"]["min_operational_battery"].as<float>();
+    maxOperationalBattery =
+        config["constraints"]["max_operational_battery"].as<float>();
 
   } catch (const YAML::Exception& e) {
     std::cerr << "[Params::readConfigFile] Error reading config file: "
