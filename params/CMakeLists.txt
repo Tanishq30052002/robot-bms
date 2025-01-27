@@ -7,7 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -fPIC -Wp,-D_GLIBCXX_ASSERTIONS")
 
-find_package(yaml-cpp REQUIRED)
+find_package(yaml-cpp QUIET)
 
 if(NOT yaml-cpp_FOUND)
   include(FetchContent)
