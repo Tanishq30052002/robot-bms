@@ -15,15 +15,16 @@ void BMS::run(std::vector<utils::Robot> &robots) {
          return robot1.getRobotBattery() < robot2.getRobotBattery();
        });
 
+  int numRobots = robots.size();
   if (currBotsCharging < numSlotsCharging) {
     for (int i = 0; i < numSlotsCharging; i++) {
       robots[i].setChargingStatus(true);
       currBotsCharging++;
     }
   } else {
-    for (int i = robots.size() - 1; i >= 0; i--) {
+    for (int i = numRobots - 1; i >= 0; i--) {
       if (robots[i].getChargingStatus() && robots[i].getRobotBattery() > 20) {
-        for (std::size_t j = 0; j < robots.size(); j++) {
+        for (int j = 0; j < numRobots; j++) {
           if (!robots[j].getChargingStatus() &&
               robots[j].getRobotBattery() < 20) {
             robots[j].setChargingStatus(true);
