@@ -72,7 +72,7 @@ The main algorithm is implemented in the BMS::run method in the bms.cpp file. Th
 
 - `params::Params:` Handles parameters from the configuration file.
 
-  - ``Params::getRobots(std::vector<utils::Robot>& robots)utils::Robot& robots):` Retrieves the list of robots from the configuration file.
+  - `Params::getRobots(std::vector<utils::Robot>& robots)utils::Robot& robots):` Retrieves the list of robots from the configuration file.
 
 - `utils::Robot:` Represents a robot with properties such as battery level and charging status.
 
