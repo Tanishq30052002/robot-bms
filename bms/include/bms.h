@@ -44,13 +44,11 @@ class BMS {
 
   void run(std::vector<utils::Robot> &robots);
 
-  void stop();
-
   /**
    * @brief Destroy the BMS object
    *
    */
-  ~BMS() { stop(); }
+  ~BMS() { std::cout << "[BMS::~BMS] Exiting the Robot BMS\n"; }
 
  private:
   float chargingPercentage_;     // per second

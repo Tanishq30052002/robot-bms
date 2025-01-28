@@ -75,5 +75,4 @@ void BMS::run(std::vector<utils::Robot> &robots) {
   }
 }
 
-void BMS::stop() { std::cout << "[BMS::stop] Exiting the Robot BMS\n"; }
 }  // namespace bms
