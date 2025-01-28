@@ -17,6 +17,26 @@ class BMS {
     numSlotsCharging_ = params_obj.getChargingSpots();
   }
 
+  /**
+   * @brief Manages the charging and discharging of robots based on their
+   * battery levels, charging status, and available charging slots.
+   *
+   * This function performs the following steps:
+   * 1. Sorts the robots by their battery levels in ascending order.
+   * 2. Allocates available charging slots to robots with battery levels below
+   * the maximum operational battery threshold.
+   * 3. If all charging slots are occupied, swaps robots with low battery levels
+   * that are not charging with robots that are charging and have higher battery
+   * levels.
+   * 4. Stops charging robots whose battery levels are close to the maximum
+   * operational threshold to free up slots.
+   * 5. Charges or discharges robots based on their charging status.
+   *
+   * @param robots A reference to a vector of `utils::Robot` objects. Each robot
+   * has properties such as battery level, charging status, and methods to
+   * modify these properties.
+   */
+
   void run(std::vector<utils::Robot> &robots);
 
   void stop();
