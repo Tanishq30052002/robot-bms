@@ -10,7 +10,7 @@ void params::Params::readConfigFile(std::string config_path) {
     // Read robots
     const auto& robot_list = config["robots"];
     for (const auto& robot : robot_list) {
-      robots.emplace_back(utils::Robot(
+      robots_.emplace_back(utils::Robot(
           robot["id"].as<int>(), robot["battery_level"].as<float>(), false));
     }
 

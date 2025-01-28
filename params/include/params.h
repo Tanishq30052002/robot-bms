@@ -10,9 +10,7 @@ class Params {
    *
    * @param config_path location of the config file
    */
-  Params(const std::string &config_path) : config_path(config_path) {
-    readConfigFile(config_path);
-  }
+  Params(const std::string &config_path) { readConfigFile(config_path); }
 
   /**
    * @brief read the parameters from the config file
@@ -26,9 +24,7 @@ class Params {
    *
    * @param robots
    */
-  inline void getRobots(std::vector<utils::Robot> &robots) {
-    robots = this->robots;
-  }
+  inline void getRobots(std::vector<utils::Robot> &robots) { robots = robots_; }
 
   /**
    * @brief Get the Charging Rate from the config file
@@ -70,13 +66,11 @@ class Params {
   inline int getChargingSpots() const { return chargingSpots_; }
 
  private:
-  std::string config_path;
-  std::vector<utils::Robot> robots;
-
   float chargingRate_ = 1;
   float dischargingRate_ = 1.5;
   float minOperationalBattery_ = 20;
   float maxOperationalBattery_ = 100;
   int chargingSpots_ = 2;
+  std::vector<utils::Robot> robots_;
 };
 }  // namespace params
