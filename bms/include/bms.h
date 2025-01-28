@@ -8,6 +8,11 @@ namespace bms {
 
 class BMS {
  public:
+  /**
+   * @brief Construct a new BMS object
+   *
+   * @param config_path location for the configuration file
+   */
   BMS(std::string config_path) {
     params::Params params_obj(config_path);
     chargingPercentage_ = params_obj.getChargingRate();
@@ -41,6 +46,10 @@ class BMS {
 
   void stop();
 
+  /**
+   * @brief Destroy the BMS object
+   *
+   */
   ~BMS() { stop(); }
 
  private:
@@ -52,8 +61,18 @@ class BMS {
 
   int currBotsCharging_ = 0;
 
+  /**
+   * @brief charges the robot
+   *
+   * @param robot
+   */
   inline void chargingRobot(utils::Robot &robot);
 
+  /**
+   * @brief discharges the robot
+   *
+   * @param robot
+   */
   inline void dischargingRobot(utils::Robot &robot);
 };
 
